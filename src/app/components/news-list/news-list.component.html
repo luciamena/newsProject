@@ -1,0 +1,23 @@
+
+<mat-list>
+  <mat-list-item>
+    <h3 [ngClass]="['alingCenter']" [ngStyle]="{'width': '25%'}" *ngIf="typeOfNews; else archivedBlock" mat-subheader>Storage date</h3>
+    <ng-template #archivedBlock>  <h3 [ngClass]="['alingCenter']" [ngStyle]="{'width': '25%'}" mat-subheader>Archived date</h3></ng-template>
+    <h3 [ngClass]="['alingCenter']" [ngStyle]="{'width': '25%'}"  mat-subheader>Title</h3>
+    <h3 [ngClass]="['alingCenter']" [ngStyle]="{'width': '25%'}" mat-subheader>Description</h3>
+    <h3 [ngClass]="['alingCenter']" [ngStyle]="{'width': '25%'}" mat-subheader>Content</h3>
+    <h3 [ngClass]="['alingCenter']" [ngStyle]="{'width': '25%'}" mat-subheader>Author</h3>
+    <h3 [ngClass]="['alingCenter']" [ngStyle]="{'width': '25%'}" *ngIf="typeOfNews; else archivedButtonBlock" mat-subheader>Delete</h3>
+    <ng-template #archivedButtonBlock>  <h3 [ngClass]="['alingCenter']" [ngStyle]="{'width': '25%'}" mat-subheader>Archive</h3></ng-template>
+
+  </mat-list-item>
+  <div *ngFor="let item of newsList">
+    <app-news
+      [typeNews]="typeOfNews"
+      [news]="item"
+      (delete)="deleteNews(item)"
+      (archive)="archiveNews(item)"
+    ></app-news>
+    <mat-divider></mat-divider>
+  </div>
+</mat-list>

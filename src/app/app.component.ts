@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'NewsApp';
+  /* constructor() {
+
+  }
+ */
+  onActivate(event: Event) {
+    window.scroll(0, 0);
+  }
 }

@@ -1,0 +1,41 @@
+<form [formGroup]="newsForm" (ngSubmit)="sendForm(formDirective)" #formDirective="ngForm" >
+  <mat-grid-list cols="6" rowHeight="3:1">
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput placeholder="Title" formControlName="title" />
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Description"
+          formControlName="description"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput placeholder="Content" formControlName="content" />
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <input matInput placeholder="Author" formControlName="author" />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <button
+        color="primary"
+        type="submit"
+        mat-mini-fab
+        [disabled]="newsForm.invalid"
+      >
+        <mat-icon>send</mat-icon>
+      </button>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>

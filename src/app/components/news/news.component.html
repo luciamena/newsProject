@@ -1,0 +1,18 @@
+
+<mat-list-item>
+  <span [ngStyle]="{'width': '25%','padding': '0 10px'}" *ngIf="typeNews; else archivedBlock">{{ news?.date }}</span>
+  <ng-template #archivedBlock> <span [ngStyle]="{'width': '25%'}">{{ news?.archiveDate }}</span></ng-template>
+  <span [ngStyle]="{'width': '25%','padding': '0 10px'}" >{{ news?.title }}</span>
+  <span [ngStyle]="{'width': '25%','padding': '0 10px'}">{{ news?.description }}</span>
+  <span [ngStyle]="{'width': '25%','padding': '0 10px'}">{{ news?.content }}</span>
+  <span [ngStyle]="{'width': '25%','padding': '0 10px'}">{{ news?.author }}</span>
+<div [ngClass]="['textCenter']" [ngStyle]="{'width': '25%','padding': '0 10px'}" >
+  <button
+    *ngIf="typeNews" (click)="archiveNews()" color="primary" mat-mini-fab>
+    <mat-icon>archive</mat-icon>
+  </button>
+  <button   *ngIf="!typeNews" (click)="deleteNews()" color="warn" mat-mini-fab>
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>
+</mat-list-item>

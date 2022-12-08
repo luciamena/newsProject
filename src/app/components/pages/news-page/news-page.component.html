@@ -1,0 +1,9 @@
+<div [ngStyle]="{'padding': '40px'}">
+  <mat-card>
+    <mat-card-header>Add news</mat-card-header>
+    <mat-card-content>
+      <app-news-form></app-news-form>
+    </mat-card-content>
+  </mat-card>
+  <app-news-list [typeOfNews]="type" [newsList]="newsList"></app-news-list>
+</div>
